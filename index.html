@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cricket Sign-Up</title></head>
+<body>
+  <h2>🏏 Cricket Match on: {{ date }}</h2>
+  <form action="/" method="post">
+    <input name="name" placeholder="Your name" required>
+    <input name="friend" placeholder="Friend's name (optional)">
+    <button type="submit">Add Me</button>
+  </form>
+
+  <h3>Main List ({{ main|length }}/22)</h3>
+  <ul>{% for player in main %}<li>{{ player }}</li>{% endfor %}</ul>
+
+  <h3>Waiting List</h3>
+  <ul>{% for player in wait %}<li>{{ player }}</li>{% endfor %}</ul>
+
+  <h3>Remove Yourself</h3>
+  <form action="/remove" method="post">
+    <input name="name" placeholder="Your name" required>
+    <button type="submit">Remove Me</button>
+  </form>
+
+  <p><a href="/admin">Admin: Change Event Date</a></p>
+</body>
+</html>
